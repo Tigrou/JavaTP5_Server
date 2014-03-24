@@ -39,7 +39,6 @@ public class Server {
         System.out.println("Il reste " + nbPlaces.get(1) + " places pour la " + pieceTheatre.get(1) );
         System.out.println("Il reste " + nbPlaces.get(2) + " places pour la " + pieceTheatre.get(2) );
     }
-cool
     public static void main(String[] args) {
 
         new Server().begin(4444);
