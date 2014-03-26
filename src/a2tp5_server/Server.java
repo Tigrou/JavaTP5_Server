@@ -23,29 +23,33 @@ public class Server {
     ArrayList<Integer> nbPlaces;
     ArrayList<Integer> nbPlacesDemandees;
 //    ArrayList<PieceTheatre> allPiecs;
-    
+
     Server() {
         pieceTheatre = new ArrayList();
         pieceTheatre.add("piece 1");
         pieceTheatre.add("Piece 2");
         pieceTheatre.add("Piece 3");
-  
+
         nbPlaces = new ArrayList();
         nbPlaces.add(33);
         nbPlaces.add(3);
         nbPlaces.add(99);
-        
-        System.out.println("Il reste " + nbPlaces.get(0) + " places pour la " + pieceTheatre.get(0) );
-        System.out.println("Il reste " + nbPlaces.get(1) + " places pour la " + pieceTheatre.get(1) );
-        System.out.println("Il reste " + nbPlaces.get(2) + " places pour la " + pieceTheatre.get(2) );
+
+        placerestante();
+
     }
+
     public static void main(String[] args) {
 
         new Server().begin(4444);
     }
 
-    
-    
+    private void placerestante() {
+        System.out.println("Il reste " + nbPlaces.get(0) + " places pour la " + pieceTheatre.get(0));
+        System.out.println("Il reste " + nbPlaces.get(1) + " places pour la " + pieceTheatre.get(1));
+        System.out.println("Il reste " + nbPlaces.get(2) + " places pour la " + pieceTheatre.get(2));
+    }
+
     public void begin(int port) {
         try {
             serverSocket = new ServerSocket(port);
@@ -86,11 +90,10 @@ public class Server {
                     out_socket.println(pieceTheatre.get(i).toString());
                 }
 
-
-                //Récupère la pièce et le nombre de places que lui envoie le client 
+                //Récupère le nom, la pièce et le nombre de places que lui envoie le client 
                 String nomReserve = in_socket.readLine();
                 System.out.println("Nom de la réserve : " + nomReserve);
-                
+
                 String nomPiece = in_socket.readLine();
                 System.out.println("Nom de la pièce : " + nomPiece);
 
@@ -107,9 +110,7 @@ public class Server {
                     out_socket.println(-2);
                 }
 
-        System.out.println("Il reste " + nbPlaces.get(0) + " places pour la " + pieceTheatre.get(0) );
-        System.out.println("Il reste " + nbPlaces.get(1) + " places pour la " + pieceTheatre.get(1) );
-        System.out.println("Il reste " + nbPlaces.get(2) + " places pour la " + pieceTheatre.get(2) );
+                placerestante();
 
 
             } catch (Exception e) {
