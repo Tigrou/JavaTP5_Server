@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 
 public class DataBase {
     
-//CTRL + SHIFT + O pour générer les imports
+//Test.. fonctionne pas..  
 
   public static void main(String[] args) {      
     try {

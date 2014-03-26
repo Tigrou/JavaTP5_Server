@@ -26,16 +26,16 @@ public class Server {
 
     Server() {
         pieceTheatre = new ArrayList();
-        pieceTheatre.add("piece 1");
-        pieceTheatre.add("Piece 2");
-        pieceTheatre.add("Piece 3");
+        pieceTheatre.add("L'Avare");
+        pieceTheatre.add("Sganarelle ou le Cocu imaginaire");
+        pieceTheatre.add("Le Docteur amoureux");
 
         nbPlaces = new ArrayList();
         nbPlaces.add(33);
         nbPlaces.add(3);
         nbPlaces.add(99);
 
-        placerestante();
+        placeRestante();
 
     }
 
@@ -44,7 +44,7 @@ public class Server {
         new Server().begin(4444);
     }
 
-    private void placerestante() {
+    private void placeRestante() {
         System.out.println("Il reste " + nbPlaces.get(0) + " places pour la " + pieceTheatre.get(0));
         System.out.println("Il reste " + nbPlaces.get(1) + " places pour la " + pieceTheatre.get(1));
         System.out.println("Il reste " + nbPlaces.get(2) + " places pour la " + pieceTheatre.get(2));
@@ -109,10 +109,9 @@ public class Server {
                 } else {
                     out_socket.println(-2);
                 }
-
-                placerestante();
-
-
+                
+                placeRestante();
+               
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
